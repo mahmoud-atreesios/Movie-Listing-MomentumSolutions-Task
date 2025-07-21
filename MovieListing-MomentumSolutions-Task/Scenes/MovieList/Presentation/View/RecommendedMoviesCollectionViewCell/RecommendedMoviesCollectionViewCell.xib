@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="recommendedMovieCollectionCell" id="gTV-IL-0wX" customClass="RecommendedMoviesCollectionViewCell" customModule="MovieListing_MomentumSolutions_Task" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="150" height="240"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="150" height="240"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SRD-0z-IAV">
+                        <rect key="frame" x="0.0" y="0.0" width="150" height="240"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="movie2" translatesAutoresizingMaskIntoConstraints="NO" id="6ND-tC-Xhk">
+                                <rect key="frame" x="0.0" y="0.0" width="150" height="190"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="190" id="bb3-6r-92u"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Greatest Show Man Man Man" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Up-Zq-WeX">
+                                <rect key="frame" x="0.0" y="190" width="150" height="13"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="13" id="a8U-So-qL2"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="10"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Syu-L6-MP2">
+                                <rect key="frame" x="120" y="8" width="22" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="22" id="J5i-Us-vQ4"/>
+                                    <constraint firstAttribute="height" constant="22" id="i5h-7h-LKK"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="heart" catalog="system"/>
+                                <connections>
+                                    <action selector="favouriteButtonPressed:" destination="gTV-IL-0wX" eventType="touchUpInside" id="Ik5-CH-4RQ"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Realese Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0yO-BW-WKF">
+                                <rect key="frame" x="0.0" y="203" width="63.333333333333336" height="12"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="12" id="lL8-iL-HxG"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <color key="textColor" systemColor="secondaryLabelColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rating" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fTz-nE-nIn">
+                                <rect key="frame" x="0.0" y="215" width="31" height="12"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="12" id="Dld-hn-yzC"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <color key="textColor" systemColor="secondaryLabelColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="fTz-nE-nIn" secondAttribute="bottom" constant="13" id="0gH-Ki-dAB"/>
+                            <constraint firstItem="7Up-Zq-WeX" firstAttribute="top" secondItem="6ND-tC-Xhk" secondAttribute="bottom" id="74H-3D-alK"/>
+                            <constraint firstAttribute="trailing" secondItem="Syu-L6-MP2" secondAttribute="trailing" constant="8" id="Fu1-ni-ABh"/>
+                            <constraint firstAttribute="trailing" secondItem="7Up-Zq-WeX" secondAttribute="trailing" id="GkW-g3-kDh"/>
+                            <constraint firstItem="0yO-BW-WKF" firstAttribute="top" secondItem="7Up-Zq-WeX" secondAttribute="bottom" id="UY5-NX-nKZ"/>
+                            <constraint firstItem="Syu-L6-MP2" firstAttribute="top" secondItem="SRD-0z-IAV" secondAttribute="top" constant="8" id="Zky-dc-mWj"/>
+                            <constraint firstItem="6ND-tC-Xhk" firstAttribute="leading" secondItem="SRD-0z-IAV" secondAttribute="leading" id="cYH-nY-Oe3"/>
+                            <constraint firstItem="fTz-nE-nIn" firstAttribute="top" secondItem="0yO-BW-WKF" secondAttribute="bottom" id="e9I-Ka-KHJ"/>
+                            <constraint firstItem="0yO-BW-WKF" firstAttribute="leading" secondItem="SRD-0z-IAV" secondAttribute="leading" id="gAe-0v-z7V"/>
+                            <constraint firstAttribute="trailing" secondItem="6ND-tC-Xhk" secondAttribute="trailing" id="gSs-sm-VTE"/>
+                            <constraint firstItem="fTz-nE-nIn" firstAttribute="leading" secondItem="SRD-0z-IAV" secondAttribute="leading" id="nCd-UD-A0v"/>
+                            <constraint firstItem="6ND-tC-Xhk" firstAttribute="top" secondItem="SRD-0z-IAV" secondAttribute="top" id="oBf-93-kcy"/>
+                            <constraint firstItem="7Up-Zq-WeX" firstAttribute="leading" secondItem="SRD-0z-IAV" secondAttribute="leading" id="yva-KZ-QNR"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="SRD-0z-IAV" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="DmM-rB-5Jd"/>
+                <constraint firstAttribute="trailing" secondItem="SRD-0z-IAV" secondAttribute="trailing" id="IHd-re-v6H"/>
+                <constraint firstItem="SRD-0z-IAV" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="pf4-FR-eEx"/>
+                <constraint firstAttribute="bottom" secondItem="SRD-0z-IAV" secondAttribute="bottom" id="vUD-G3-oe3"/>
+            </constraints>
+            <connections>
+                <outlet property="favouriteButton" destination="Syu-L6-MP2" id="72x-XR-dqz"/>
+                <outlet property="movieRating" destination="fTz-nE-nIn" id="fbz-2U-TBd"/>
+                <outlet property="movieRealeseDate" destination="0yO-BW-WKF" id="Twf-8t-19k"/>
+                <outlet property="movieTitle" destination="7Up-Zq-WeX" id="U4m-6B-sQ7"/>
+                <outlet property="posterImageView" destination="6ND-tC-Xhk" id="hc9-4g-N9J"/>
+            </connections>
+            <point key="canvasLocation" x="138.93129770992365" y="19.718309859154932"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="heart" catalog="system" width="128" height="107"/>
+        <image name="movie2" width="1920" height="1080"/>
+        <systemColor name="secondaryLabelColor">
+            <color red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
