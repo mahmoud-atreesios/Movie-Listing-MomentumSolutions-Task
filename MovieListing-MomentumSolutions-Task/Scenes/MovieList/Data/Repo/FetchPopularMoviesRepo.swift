@@ -10,8 +10,8 @@ import Foundation
 class FetchPopularMoviesRepo: FetchPopularMoviesRepoProtocol {
     private var fetchPopularMoviesRemoteDS: FetchPopularMoviesRemoteDSProtocol
     
-    init(fetchPopularMoviesRehmoteDS: FetchPopularMoviesRemoteDSProtocol) {
-        self.fetchPopularMoviesRemoteDS = fetchPopularMoviesRehmoteDS
+    init(fetchPopularMoviesRemoteDS: FetchPopularMoviesRemoteDSProtocol) {
+        self.fetchPopularMoviesRemoteDS = fetchPopularMoviesRemoteDS
     }
     
     func fetchPopularMovies(completion: @escaping (Result<[Movie], AppException>) -> Void) {

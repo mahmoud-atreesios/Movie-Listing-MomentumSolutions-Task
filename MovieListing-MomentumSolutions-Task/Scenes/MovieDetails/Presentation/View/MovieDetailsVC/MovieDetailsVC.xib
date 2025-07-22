@@ -85,11 +85,8 @@
                                     <color key="textColor" systemColor="secondaryLabelColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OverView" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BKc-57-NtH">
-                                    <rect key="frame" x="8" y="204.33333333333331" width="377" height="379.99999999999994"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="380" id="oAa-bh-BUr"/>
-                                    </constraints>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OverView" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BKc-57-NtH">
+                                    <rect key="frame" x="8" y="204.33333333333331" width="377" height="20.333333333333343"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
@@ -99,12 +96,12 @@
                             <constraints>
                                 <constraint firstItem="qAx-XP-OeS" firstAttribute="top" secondItem="Pdh-NR-A8Z" secondAttribute="top" constant="10" id="FuL-6q-iwc"/>
                                 <constraint firstItem="haq-k3-3G4" firstAttribute="top" secondItem="aHZ-dO-hfU" secondAttribute="bottom" constant="8" id="GIU-r0-8MZ"/>
+                                <constraint firstAttribute="bottom" secondItem="BKc-57-NtH" secondAttribute="bottom" constant="378.33333333333337" id="MLR-u3-Ngc"/>
                                 <constraint firstItem="neb-eZ-uMR" firstAttribute="top" secondItem="dmu-O9-0NZ" secondAttribute="bottom" constant="8" id="MYB-0g-ZK9"/>
                                 <constraint firstItem="neb-eZ-uMR" firstAttribute="leading" secondItem="Pdh-NR-A8Z" secondAttribute="leading" constant="8" id="N8R-3v-Enq"/>
                                 <constraint firstAttribute="trailing" secondItem="BKc-57-NtH" secondAttribute="trailing" constant="8" id="NgD-Vg-rKN"/>
                                 <constraint firstItem="dmu-O9-0NZ" firstAttribute="leading" secondItem="Pdh-NR-A8Z" secondAttribute="leading" constant="8" id="Us0-y3-5qY"/>
                                 <constraint firstItem="BKc-57-NtH" firstAttribute="leading" secondItem="Pdh-NR-A8Z" secondAttribute="leading" constant="8" id="Y5i-u6-TID"/>
-                                <constraint firstAttribute="bottom" secondItem="BKc-57-NtH" secondAttribute="bottom" constant="18.666666666666742" id="cWL-Ic-usc"/>
                                 <constraint firstItem="qAx-XP-OeS" firstAttribute="leading" secondItem="Pdh-NR-A8Z" secondAttribute="leading" constant="8" id="etD-hN-8ts"/>
                                 <constraint firstItem="haq-k3-3G4" firstAttribute="leading" secondItem="Pdh-NR-A8Z" secondAttribute="leading" constant="8" id="hHR-Lq-z4y"/>
                                 <constraint firstItem="aHZ-dO-hfU" firstAttribute="top" secondItem="qAx-XP-OeS" secondAttribute="bottom" constant="8" id="iab-gY-e6w"/>
@@ -173,7 +170,7 @@
         <image name="movie2" width="1920" height="1080"/>
         <image name="play.circle.fill" catalog="system" width="128" height="123"/>
         <systemColor name="secondaryLabelColor">
-            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

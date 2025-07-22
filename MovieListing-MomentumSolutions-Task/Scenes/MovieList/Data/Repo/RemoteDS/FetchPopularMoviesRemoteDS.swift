@@ -7,7 +7,7 @@
 
 import Foundation
 
-class FetchPopularMoviesRemoteDS {
+class FetchPopularMoviesRemoteDS: FetchPopularMoviesRemoteDSProtocol {
     private var networkProvider: NetworkProviderProtocol
     
     init(networkProvider: NetworkProviderProtocol) {

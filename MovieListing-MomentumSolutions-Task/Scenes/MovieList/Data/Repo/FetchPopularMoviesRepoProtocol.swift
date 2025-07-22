@@ -8,5 +8,5 @@
 import Foundation
 
 protocol FetchPopularMoviesRepoProtocol {
-    
+    func fetchPopularMovies(completion: @escaping (Result<[Movie], AppException>) -> Void)
 }

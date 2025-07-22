@@ -22,12 +22,28 @@ class MovieDetailsVC: UIViewController {
     
     @IBOutlet weak var contentView: UIView!
     
+    private let movie: Movie
+    
+    init(movie: Movie) {
+        self.movie = movie
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         contentView.layer.cornerRadius = 20
         contentView.layer.masksToBounds = true
         updateFavouriteButtonImage()
+        
+        //test sth
+        movieTitle.text = movie.title
+        movieOverview.text = movie.overview
+        
     }
     
     @IBAction func favouriteButtonPressed(_ sender: UIButton) {

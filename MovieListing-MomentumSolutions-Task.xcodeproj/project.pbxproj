@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		1CC63FEB2E2FCD3500BD6711 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 1CC63FEA2E2FCD3500BD6711 /* SDWebImage */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		1CF37D882E2E78C1005BE645 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -52,6 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1CC63FEB2E2FCD3500BD6711 /* SDWebImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,6 +108,7 @@
 			);
 			name = "MovieListing-MomentumSolutions-Task";
 			packageProductDependencies = (
+				1CC63FEA2E2FCD3500BD6711 /* SDWebImage */,
 			);
 			productName = "MovieListing-MomentumSolutions-Task";
 			productReference = 1CF37D712E2E78BE005BE645 /* MovieListing-MomentumSolutions-Task.app */;
@@ -159,6 +165,9 @@
 			);
 			mainGroup = 1CF37D682E2E78BE005BE645;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				1CC63FE92E2FCD3500BD6711 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 1CF37D722E2E78BE005BE645 /* Products */;
 			projectDirPath = "";
@@ -457,6 +466,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		1CC63FE92E2FCD3500BD6711 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.21.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		1CC63FEA2E2FCD3500BD6711 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1CC63FE92E2FCD3500BD6711 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 1CF37D692E2E78BE005BE645 /* Project object */;
 }

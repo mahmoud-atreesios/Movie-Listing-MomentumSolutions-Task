@@ -18,7 +18,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="movie11" translatesAutoresizingMaskIntoConstraints="NO" id="30N-uu-Od4">
-                        <rect key="frame" x="0.0" y="0.0" width="190" height="88"/>
+                        <rect key="frame" x="0.0" y="5" width="190" height="88"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="190" id="iQ9-pb-5If"/>
                         </constraints>
@@ -60,26 +60,34 @@
                         <state key="normal" title="Button"/>
                         <buttonConfiguration key="configuration" style="plain" image="play.circle" catalog="system"/>
                     </button>
+                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="XqH-K2-pGf">
+                        <rect key="frame" x="85" y="39" width="25" height="20"/>
+                    </activityIndicatorView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="hPs-za-ipG" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="25" id="0WX-uw-7u5"/>
                     <constraint firstItem="dz6-cW-wu1" firstAttribute="top" secondItem="CKe-Cg-kM4" secondAttribute="bottom" constant="5" id="53J-u9-F4k"/>
+                    <constraint firstItem="XqH-K2-pGf" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="85" id="7rJ-sf-Zcy"/>
+                    <constraint firstAttribute="bottom" secondItem="XqH-K2-pGf" secondAttribute="bottom" constant="39" id="BJj-Zg-FYf"/>
                     <constraint firstItem="30N-uu-Od4" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Day-Av-hDa"/>
+                    <constraint firstItem="XqH-K2-pGf" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="39" id="EDv-YD-F47"/>
                     <constraint firstItem="9hq-zD-Azo" firstAttribute="leading" secondItem="30N-uu-Od4" secondAttribute="trailing" constant="5" id="ESi-L5-aCm"/>
                     <constraint firstAttribute="bottom" secondItem="9hq-zD-Azo" secondAttribute="bottom" constant="36" id="V9H-dP-GhY"/>
-                    <constraint firstItem="30N-uu-Od4" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="XZG-mW-O50"/>
+                    <constraint firstItem="30N-uu-Od4" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="XZG-mW-O50"/>
                     <constraint firstItem="CKe-Cg-kM4" firstAttribute="leading" secondItem="30N-uu-Od4" secondAttribute="trailing" constant="5" id="aTD-Wc-gdG"/>
                     <constraint firstItem="9hq-zD-Azo" firstAttribute="top" secondItem="dz6-cW-wu1" secondAttribute="bottom" constant="5" id="bbQ-Dk-bW7"/>
                     <constraint firstItem="hPs-za-ipG" firstAttribute="leading" secondItem="dz6-cW-wu1" secondAttribute="trailing" constant="5" id="fJT-nI-ZWM"/>
+                    <constraint firstItem="9hq-zD-Azo" firstAttribute="leading" secondItem="XqH-K2-pGf" secondAttribute="trailing" constant="85" id="lru-oH-Pqz"/>
                     <constraint firstItem="CKe-Cg-kM4" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="p8U-SB-TXB"/>
                     <constraint firstAttribute="trailing" secondItem="hPs-za-ipG" secondAttribute="trailing" constant="10" id="x7J-YS-bMw"/>
-                    <constraint firstAttribute="bottom" secondItem="30N-uu-Od4" secondAttribute="bottom" constant="10" id="y9A-0d-tiu"/>
+                    <constraint firstAttribute="bottom" secondItem="30N-uu-Od4" secondAttribute="bottom" constant="5" id="y9A-0d-tiu"/>
                     <constraint firstAttribute="bottom" secondItem="hPs-za-ipG" secondAttribute="bottom" constant="48" id="ypC-U7-n8I"/>
                     <constraint firstItem="dz6-cW-wu1" firstAttribute="leading" secondItem="30N-uu-Od4" secondAttribute="trailing" constant="5" id="zFY-AE-j6l"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="loadingIndicator" destination="XqH-K2-pGf" id="w37-Xl-IVw"/>
                 <outlet property="movieRating" destination="9hq-zD-Azo" id="Rg8-bc-EWM"/>
                 <outlet property="movieRealeaseDate" destination="dz6-cW-wu1" id="o7S-OI-YrL"/>
                 <outlet property="movieTitle" destination="CKe-Cg-kM4" id="IC2-at-N08"/>

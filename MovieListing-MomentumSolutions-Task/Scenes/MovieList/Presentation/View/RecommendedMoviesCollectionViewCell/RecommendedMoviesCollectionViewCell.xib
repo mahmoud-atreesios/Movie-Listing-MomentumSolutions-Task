@@ -66,13 +66,20 @@
                                 <color key="textColor" systemColor="secondaryLabelColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="kAu-FW-ed1">
+                                <rect key="frame" x="65" y="85" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="fTz-nE-nIn" secondAttribute="bottom" constant="13" id="0gH-Ki-dAB"/>
+                            <constraint firstItem="kAu-FW-ed1" firstAttribute="top" secondItem="SRD-0z-IAV" secondAttribute="top" constant="85" id="4IU-E2-0Pw"/>
                             <constraint firstItem="7Up-Zq-WeX" firstAttribute="top" secondItem="6ND-tC-Xhk" secondAttribute="bottom" id="74H-3D-alK"/>
+                            <constraint firstItem="7Up-Zq-WeX" firstAttribute="top" secondItem="kAu-FW-ed1" secondAttribute="bottom" constant="85" id="9mO-Bm-8AO"/>
                             <constraint firstAttribute="trailing" secondItem="Syu-L6-MP2" secondAttribute="trailing" constant="8" id="Fu1-ni-ABh"/>
                             <constraint firstAttribute="trailing" secondItem="7Up-Zq-WeX" secondAttribute="trailing" id="GkW-g3-kDh"/>
+                            <constraint firstItem="kAu-FW-ed1" firstAttribute="leading" secondItem="SRD-0z-IAV" secondAttribute="leading" constant="65" id="Pie-Ak-waQ"/>
+                            <constraint firstAttribute="trailing" secondItem="kAu-FW-ed1" secondAttribute="trailing" constant="65" id="Slh-uo-9V9"/>
                             <constraint firstItem="0yO-BW-WKF" firstAttribute="top" secondItem="7Up-Zq-WeX" secondAttribute="bottom" id="UY5-NX-nKZ"/>
                             <constraint firstItem="Syu-L6-MP2" firstAttribute="top" secondItem="SRD-0z-IAV" secondAttribute="top" constant="8" id="Zky-dc-mWj"/>
                             <constraint firstItem="6ND-tC-Xhk" firstAttribute="leading" secondItem="SRD-0z-IAV" secondAttribute="leading" id="cYH-nY-Oe3"/>
@@ -96,6 +103,7 @@
             </constraints>
             <connections>
                 <outlet property="favouriteButton" destination="Syu-L6-MP2" id="72x-XR-dqz"/>
+                <outlet property="loadingIndicator" destination="kAu-FW-ed1" id="jyG-Ld-U6x"/>
                 <outlet property="movieRating" destination="fTz-nE-nIn" id="fbz-2U-TBd"/>
                 <outlet property="movieRealeseDate" destination="0yO-BW-WKF" id="Twf-8t-19k"/>
                 <outlet property="movieTitle" destination="7Up-Zq-WeX" id="U4m-6B-sQ7"/>
@@ -108,7 +116,7 @@
         <image name="heart" catalog="system" width="128" height="107"/>
         <image name="movie2" width="1920" height="1080"/>
         <systemColor name="secondaryLabelColor">
-            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class RecommendedMoviesCollectionViewCell: UICollectionViewCell {
 
@@ -16,6 +17,7 @@ class RecommendedMoviesCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var favouriteButton: UIButton!
     
+    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -30,6 +32,27 @@ class RecommendedMoviesCollectionViewCell: UICollectionViewCell {
     
 }
 
+//MARK: - Configuration
+extension RecommendedMoviesCollectionViewCell {
+    func configure(with movie: Movie) {
+        movieTitle.text = movie.title
+        movieRealeseDate.text = movie.releaseDate
+        movieRating.text = String(format: "%.1f", movie.voteAverage)
+        
+        if let url = URL(string: "https://image.tmdb.org/t/p/w500\(movie.poster)") {
+            loadingIndicator.startAnimating()
+            
+            posterImageView.sd_setImage(with: url, completed: { [weak self] _, _, _, _ in
+                self?.loadingIndicator.stopAnimating()
+            })
+        } else {
+            posterImageView.image = nil
+            loadingIndicator.stopAnimating()
+        }
+    }
+}
+
+//MARK: - Favourite button logic
 extension RecommendedMoviesCollectionViewCell {
     private func updateFavouriteButtonImage() {
         let imageName = favouriteButton.isSelected ? "heart.fill" : "heart"
