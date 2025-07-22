@@ -39,22 +39,12 @@ class MovieListVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let bannerNib = UINib(nibName: "BannerCollectionViewCell", bundle: nil)
-        bannerCollectionView.register(bannerNib, forCellWithReuseIdentifier: "bannerCollectionViewCell")
-        
-        bannerCollectionView.dataSource = self
-        bannerCollectionView.delegate = self
-        
-        setupCollectionView()
+        setupBannerCollectionView()
+        setupMoviesCollectionView()
         setupTableView()
         setupBindings()
         viewModel.fetchMovies()
-        
-        // Configure page control
-        pageControl.numberOfPages = bannerImages.count
-        pageControl.currentPage = 0
-
-        // Start the automatic scrolling timer
+        setupPageControl()
         startBannerScrolling()
         
     }
@@ -71,8 +61,17 @@ class MovieListVC: UIViewController {
 //MARK: - Setup
 extension MovieListVC {
     
-    // Register the custom collection view cell
-    private func setupCollectionView() {
+    // Register the custom Banner collection view cell
+    private func setupBannerCollectionView() {
+        let bannerNib = UINib(nibName: "BannerCollectionViewCell", bundle: nil)
+        bannerCollectionView.register(bannerNib, forCellWithReuseIdentifier: "bannerCollectionViewCell")
+        
+        bannerCollectionView.dataSource = self
+        bannerCollectionView.delegate = self
+    }
+    
+    // Register the custom Movies collection view cell
+    private func setupMoviesCollectionView() {
         let nib = UINib(nibName: "RecommendedMoviesCollectionViewCell", bundle: nil)
         recommendedMoviesCollectionView.register(nib, forCellWithReuseIdentifier: "recommendedMovieCollectionCell")
         
@@ -87,6 +86,12 @@ extension MovieListVC {
         
         topSearchesMoviesTableView.dataSource = self
         topSearchesMoviesTableView.delegate = self
+    }
+    
+    // setup page control
+    private func setupPageControl() {
+        pageControl.numberOfPages = bannerImages.count
+        pageControl.currentPage = 0
     }
     
     // setup binding
@@ -107,7 +112,10 @@ extension MovieListVC {
             .store(in: &cancellables)
 
     }
-    
+}
+
+//MARK: - Override function
+extension MovieListVC {
     override func viewDidLayoutSubviews() {
         personImageView.setCornerRadius(60)
         //bannerImageView.setCornerRadius(20)
@@ -122,19 +130,6 @@ extension MovieListVC {
         navigationController?.setNavigationBarHidden(false, animated: false)
         timer?.invalidate()
     }
-    
-    private func startBannerScrolling() {
-        timer?.invalidate() 
-        timer = Timer.scheduledTimer(withTimeInterval: 2.0, repeats: true) { [weak self] _ in
-            guard let self = self else { return }
-            let nextPage = (self.currentPage + 1) % self.bannerImages.count
-            let indexPath = IndexPath(item: nextPage, section: 0)
-            self.bannerCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
-            self.pageControl.currentPage = nextPage
-            self.currentPage = nextPage
-        }
-    }
-    
 }
 
 //MARK: - Collection View Cell
@@ -225,4 +220,19 @@ extension MovieListVC: UITableViewDataSource, UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
+}
+
+//MARK: - Handle Banner Logic
+extension MovieListVC {
+    private func startBannerScrolling() {
+        timer?.invalidate()
+        timer = Timer.scheduledTimer(withTimeInterval: 2.0, repeats: true) { [weak self] _ in
+            guard let self = self else { return }
+            let nextPage = (self.currentPage + 1) % self.bannerImages.count
+            let indexPath = IndexPath(item: nextPage, section: 0)
+            self.bannerCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+            self.pageControl.currentPage = nextPage
+            self.currentPage = nextPage
+        }
+    }
 }
