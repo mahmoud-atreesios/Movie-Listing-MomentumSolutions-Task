@@ -5,7 +5,7 @@
 //  Created by Mahmoud Mohamed Atrees on 22/07/2025.
 //
 
-import Foundation
+import UIKit
 import Combine
 
 class MovieListViewModel {
@@ -14,7 +14,7 @@ class MovieListViewModel {
     
     @Published var movies: [Movie] = []
     @Published var error: AppException?
-
+    
     init(fetchPopularMovie: FetchPopularMoviesUsecaseProtocol) {
         self.fetchPopularMovie = fetchPopularMovie
     }
@@ -31,5 +31,17 @@ class MovieListViewModel {
             }
         }
     }
-    
+}
+
+
+//MARK: - Handle is favourite logic
+extension MovieListViewModel {
+    func toggleFavorite(for movie: Movie) {
+        guard let index = movies.firstIndex(where: { $0.id == movie.id }) else { return }
+        movies[index].isFavorite.toggle()
+    }
+
+    func isFavorite(movie: Movie) -> Bool {
+        return movies.first(where: { $0.id == movie.id })?.isFavorite ?? false
+    }
 }

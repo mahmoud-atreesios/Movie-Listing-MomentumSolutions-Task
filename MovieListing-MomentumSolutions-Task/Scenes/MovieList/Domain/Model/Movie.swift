@@ -15,4 +15,5 @@ struct Movie {
     let releaseDate: String
     let originalLanguage: String
     let overview: String
+    var isFavorite: Bool = false 
 }

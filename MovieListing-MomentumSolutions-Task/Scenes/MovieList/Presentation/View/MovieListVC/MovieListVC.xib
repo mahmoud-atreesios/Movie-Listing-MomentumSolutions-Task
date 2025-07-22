@@ -10,7 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MovieListVC" customModule="MovieListing_MomentumSolutions_Task" customModuleProvider="target">
             <connections>
-                <outlet property="bannerImageView" destination="uQ8-Tw-0Dw" id="TV6-WK-QlS"/>
+                <outlet property="bannerCollectionView" destination="eez-95-16K" id="NMn-OB-at9"/>
                 <outlet property="pageControl" destination="eSj-Is-8zi" id="u1h-oq-Kdt"/>
                 <outlet property="personImageView" destination="9gQ-O9-ubT" id="EI5-2B-Msr"/>
                 <outlet property="recommendedMoviesCollectionView" destination="6aD-EK-alB" id="eci-Fv-FOm"/>
@@ -87,16 +87,13 @@
                                         <constraint firstAttribute="height" constant="45" id="Wvq-St-565"/>
                                     </constraints>
                                 </stackView>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="movie2" translatesAutoresizingMaskIntoConstraints="NO" id="uQ8-Tw-0Dw">
-                                    <rect key="frame" x="20" y="100" width="353" height="160"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="160" id="b8r-SD-Dzf"/>
-                                    </constraints>
-                                </imageView>
                                 <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="eSj-Is-8zi">
                                     <rect key="frame" x="160" y="262" width="73" height="25.666666666666686"/>
                                     <color key="pageIndicatorTintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <color key="currentPageIndicatorTintColor" systemColor="systemIndigoColor"/>
+                                    <connections>
+                                        <action selector="pageControlChanged:" destination="-1" eventType="valueChanged" id="I2t-g2-YAn"/>
+                                    </connections>
                                 </pageControl>
                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="144" translatesAutoresizingMaskIntoConstraints="NO" id="uU0-Mf-P7f" userLabel="Recommended for you">
                                     <rect key="frame" x="8" y="302.66666666666669" width="377" height="20.333333333333314"/>
@@ -158,10 +155,21 @@
                                         </label>
                                     </subviews>
                                 </stackView>
+                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="eez-95-16K" userLabel="Banner Collection View">
+                                    <rect key="frame" x="20" y="104" width="353" height="150"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="XZX-4c-yuG">
+                                        <size key="itemSize" width="128" height="128"/>
+                                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    </collectionViewFlowLayout>
+                                </collectionView>
                             </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <constraints>
                                 <constraint firstItem="9gQ-O9-ubT" firstAttribute="leading" secondItem="UY3-fc-SNI" secondAttribute="leading" constant="8" id="9HD-8A-Z7X"/>
+                                <constraint firstAttribute="trailing" secondItem="eez-95-16K" secondAttribute="trailing" constant="20" id="9s0-Tp-J5i"/>
                                 <constraint firstItem="NS4-ed-Svw" firstAttribute="leading" secondItem="9gQ-O9-ubT" secondAttribute="trailing" constant="8" id="CVR-dq-Us3"/>
                                 <constraint firstItem="NKw-Cw-krj" firstAttribute="top" secondItem="UY3-fc-SNI" secondAttribute="top" constant="22" id="GCs-X3-m0B"/>
                                 <constraint firstItem="2ZD-pi-kc7" firstAttribute="top" secondItem="6aD-EK-alB" secondAttribute="bottom" constant="20" id="GaT-iq-peF"/>
@@ -172,20 +180,19 @@
                                 <constraint firstItem="2ZD-pi-kc7" firstAttribute="leading" secondItem="UY3-fc-SNI" secondAttribute="leading" constant="8" id="Rov-cM-4AI"/>
                                 <constraint firstItem="uU0-Mf-P7f" firstAttribute="top" secondItem="eSj-Is-8zi" secondAttribute="bottom" constant="15" id="Rw0-PQ-1Xk"/>
                                 <constraint firstItem="9gQ-O9-ubT" firstAttribute="top" secondItem="UY3-fc-SNI" secondAttribute="top" id="S4k-yg-MJO"/>
-                                <constraint firstItem="uQ8-Tw-0Dw" firstAttribute="leading" secondItem="UY3-fc-SNI" secondAttribute="leading" constant="20" id="Swj-Ha-Vsa"/>
-                                <constraint firstAttribute="trailing" secondItem="uQ8-Tw-0Dw" secondAttribute="trailing" constant="20" id="T1w-la-xup"/>
                                 <constraint firstAttribute="trailing" secondItem="6aD-EK-alB" secondAttribute="trailing" id="ZBz-8P-Qo3"/>
                                 <constraint firstItem="NS4-ed-Svw" firstAttribute="top" secondItem="UY3-fc-SNI" secondAttribute="top" constant="22" id="dMB-q6-ZR9"/>
                                 <constraint firstAttribute="trailing" secondItem="uU0-Mf-P7f" secondAttribute="trailing" constant="8" id="e4f-lt-cbN"/>
                                 <constraint firstItem="QT0-se-0qA" firstAttribute="leading" secondItem="UY3-fc-SNI" secondAttribute="leading" constant="8" id="eIV-Zc-0u5"/>
                                 <constraint firstItem="6aD-EK-alB" firstAttribute="leading" secondItem="UY3-fc-SNI" secondAttribute="leading" constant="8" id="gp1-5q-Ygy"/>
+                                <constraint firstItem="eSj-Is-8zi" firstAttribute="top" secondItem="eez-95-16K" secondAttribute="bottom" constant="8" id="gqN-cH-fkz"/>
                                 <constraint firstAttribute="bottom" secondItem="QT0-se-0qA" secondAttribute="bottom" id="i2d-R4-gxm"/>
+                                <constraint firstItem="eez-95-16K" firstAttribute="top" secondItem="9gQ-O9-ubT" secondAttribute="bottom" constant="24" id="jcU-7h-rUb"/>
                                 <constraint firstItem="eSj-Is-8zi" firstAttribute="leading" secondItem="UY3-fc-SNI" secondAttribute="leading" constant="160" id="mcR-Pf-dKb"/>
                                 <constraint firstItem="6aD-EK-alB" firstAttribute="top" secondItem="uU0-Mf-P7f" secondAttribute="bottom" constant="20" id="nFz-Gw-9mr"/>
-                                <constraint firstItem="eSj-Is-8zi" firstAttribute="top" secondItem="uQ8-Tw-0Dw" secondAttribute="bottom" constant="2" id="nLk-dh-0z0"/>
-                                <constraint firstItem="uQ8-Tw-0Dw" firstAttribute="top" secondItem="9gQ-O9-ubT" secondAttribute="bottom" constant="20" id="qGO-0E-b5s"/>
                                 <constraint firstAttribute="trailing" secondItem="eSj-Is-8zi" secondAttribute="trailing" constant="160" id="rKH-Fr-cU5"/>
                                 <constraint firstAttribute="trailing" secondItem="NKw-Cw-krj" secondAttribute="trailing" constant="8" id="sI5-fZ-av9"/>
+                                <constraint firstItem="eez-95-16K" firstAttribute="leading" secondItem="UY3-fc-SNI" secondAttribute="leading" constant="20" id="zj8-9P-8wq"/>
                             </constraints>
                         </view>
                     </subviews>
@@ -215,19 +222,18 @@
     <resources>
         <image name="bell" catalog="system" width="125" height="128"/>
         <image name="magnifyingglass" catalog="system" width="128" height="117"/>
-        <image name="movie2" width="1920" height="1080"/>
         <image name="person1" width="848" height="1000"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="secondaryLabelColor">
-            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemIndigoColor">
-            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

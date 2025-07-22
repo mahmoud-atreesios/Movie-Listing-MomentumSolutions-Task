@@ -18,6 +18,9 @@ class RecommendedMoviesCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var favouriteButton: UIButton!
     
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
+    
+    var onFavoriteTapped: (() -> Void)?
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -26,8 +29,7 @@ class RecommendedMoviesCollectionViewCell: UICollectionViewCell {
     }
     
     @IBAction func favouriteButtonPressed(_ sender: UIButton) {
-        sender.isSelected.toggle()
-        updateFavouriteButtonImage()
+        onFavoriteTapped?()
     }
     
 }
@@ -38,6 +40,9 @@ extension RecommendedMoviesCollectionViewCell {
         movieTitle.text = movie.title
         movieRealeseDate.text = movie.releaseDate
         movieRating.text = String(format: "%.1f", movie.voteAverage)
+        
+        favouriteButton.isSelected = movie.isFavorite
+        updateFavouriteButtonImage()
         
         if let url = URL(string: "https://image.tmdb.org/t/p/w500\(movie.poster)") {
             loadingIndicator.startAnimating()

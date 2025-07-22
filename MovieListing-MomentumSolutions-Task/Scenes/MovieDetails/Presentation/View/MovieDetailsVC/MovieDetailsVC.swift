@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class MovieDetailsVC: UIViewController {
 
@@ -23,9 +24,11 @@ class MovieDetailsVC: UIViewController {
     @IBOutlet weak var contentView: UIView!
     
     private let movie: Movie
-    
-    init(movie: Movie) {
+    private let viewModel: MovieListViewModel
+
+    init(movie: Movie, viewModel: MovieListViewModel) {
         self.movie = movie
+        self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -36,18 +39,53 @@ class MovieDetailsVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        contentView.layer.cornerRadius = 20
-        contentView.layer.masksToBounds = true
-        updateFavouriteButtonImage()
         
-        //test sth
-        movieTitle.text = movie.title
-        movieOverview.text = movie.overview
+        setupUI()
+        setupMovieDetails()
+        setupFavouriteButton()
         
     }
     
     @IBAction func favouriteButtonPressed(_ sender: UIButton) {
-        sender.isSelected.toggle()
+        updateFavouriteButtonState()
+    }
+}
+
+//MARK: - setup
+extension MovieDetailsVC {
+    
+    // ui setup
+    private func setupUI() {
+        contentView.layer.cornerRadius = 20
+        contentView.layer.masksToBounds = true
+    }
+    
+    // movie details setup
+    private func setupMovieDetails() {
+        movieTitle.text = movie.title
+        movieRating.text = "\(movie.voteAverage)"
+        movieReleaseDate.text = movie.releaseDate
+        movieOriginalLanguage.text = movie.originalLanguage
+        movieOverview.text = movie.overview
+        
+        if let url = URL(string: "https://image.tmdb.org/t/p/w500\(movie.poster)") {
+            
+            moviePoster.sd_setImage(with: url)
+        }
+    }
+    
+    // favourite button setup
+    private func setupFavouriteButton() {
+        favouriteButton.isSelected = viewModel.isFavorite(movie: movie)
+        updateFavouriteButtonImage()
+    }
+}
+
+//MARK: - Handle favourite button logic
+extension MovieDetailsVC {
+    private func updateFavouriteButtonState() {
+        viewModel.toggleFavorite(for: movie)
+        favouriteButton.isSelected = viewModel.isFavorite(movie: movie)
         updateFavouriteButtonImage()
     }
     
@@ -57,6 +95,4 @@ class MovieDetailsVC: UIViewController {
         favouriteButton.setImage(image, for: .normal)
         favouriteButton.tintColor = .red
     }
-    
-    
 }
