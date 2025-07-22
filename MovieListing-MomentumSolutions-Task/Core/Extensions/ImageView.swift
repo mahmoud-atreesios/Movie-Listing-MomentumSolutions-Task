@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension UIImageView {
+extension UIView {
     func setCornerRadius(_ radius: CGFloat, corners: UIRectCorner = .allCorners, clipToBounds: Bool = true) {
         let path = UIBezierPath(
             roundedRect: self.bounds,
