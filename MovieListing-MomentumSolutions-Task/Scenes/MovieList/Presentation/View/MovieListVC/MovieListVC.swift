@@ -17,9 +17,19 @@ class MovieListVC: UIViewController {
     
     @IBOutlet weak var topSearchesMoviesTableView: UITableView!
     
+    let networkProvider = NetworkProvider()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        networkProvider.get(apiEndpoint: FetchPopularMoviesRequest(), modelDto: PopularMoviesDTO.self) { result in
+            switch result {
+            case .success(let movies):
+                print(movies)
+            case .failure(let error):
+                print(error)
+            }
+        }
 
         navigationController?.setNavigationBarHidden(true, animated: false)
 
