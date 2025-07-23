@@ -13,7 +13,9 @@ enum MovieListVCFactory {
         let remoteDS = FetchPopularMoviesRemoteDS(networkProvider: networkProvider)
         let repo = FetchPopularMoviesRepo(fetchPopularMoviesRemoteDS: remoteDS)
         let useCase = FetchPopularMoviesUsecase(fetchPopularMoviesRepo: repo)
-        let viewModel = MovieListViewModel(fetchPopularMovie: useCase)
+        let cacheService = MovieCacheService()
+        let favoriteService = FavoriteService()
+        let viewModel = MovieListViewModel(fetchPopularMovie: useCase, cacheService: cacheService, favoriteService: favoriteService)
         let vc = MovieListVC(viewModel: viewModel)
         return vc
     }

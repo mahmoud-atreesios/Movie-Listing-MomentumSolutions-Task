@@ -65,11 +65,11 @@ extension MovieDetailsVC {
         movieTitle.text = movie.title
         movieRating.text = "\(movie.voteAverage)"
         movieReleaseDate.text = movie.releaseDate
+        movieVoteAverage.text = "\(movie.voteAverage)"
         movieOriginalLanguage.text = movie.originalLanguage
         movieOverview.text = movie.overview
         
         if let url = URL(string: "https://image.tmdb.org/t/p/w500\(movie.poster)") {
-            
             moviePoster.sd_setImage(with: url)
         }
     }

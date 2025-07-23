@@ -10,55 +10,50 @@ import Combine
 
 class MovieListViewModel {
     private let fetchPopularMovie: FetchPopularMoviesUsecaseProtocol
+    private let cacheService: MovieCacheServiceProtocol
+    private let favoriteService: FavoriteServiceProtocol
+    
     private var cancellables = Set<AnyCancellable>()
-    private let cacheFileName = "cached_movies.json"
-    private let favoritesKey = "favorite_movie_ids"
 
     @Published var movies: [Movie] = []
     @Published var error: AppException?
     
-    private var cacheURL: URL? {
-        FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first?.appendingPathComponent(cacheFileName)
-    }
     
-    init(fetchPopularMovie: FetchPopularMoviesUsecaseProtocol) {
+    //MARK: - Initialization
+    init(
+        fetchPopularMovie: FetchPopularMoviesUsecaseProtocol,
+        cacheService: MovieCacheServiceProtocol,
+        favoriteService: FavoriteServiceProtocol
+    ) {
         self.fetchPopularMovie = fetchPopularMovie
+        self.cacheService = cacheService
+        self.favoriteService = favoriteService
     }
-    
-    private func cacheMovies(_ movies: [Movie]) {
-        guard let url = cacheURL else { return }
-        do {
-            let data = try JSONEncoder().encode(movies)
-            try data.write(to: url)
-        } catch {
-            print("Failed to cache movies: \(error)")
-        }
-    }
-    
-    private func loadCachedMovies() -> [Movie]? {
-        guard let url = cacheURL else { return nil }
-        do {
-            let data = try Data(contentsOf: url)
-            let movies = try JSONDecoder().decode([Movie].self, from: data)
-            return movies
-        } catch {
-            print("Failed to load cached movies: \(error)")
-            return nil
-        }
-    }
-    
+}
+
+//MARK: - Fetch Movies
+extension MovieListViewModel {
     func fetchMovies() {
         fetchPopularMovie.fetchPopularMovies { [weak self] result in
             DispatchQueue.main.async {
+                guard let self else { return }
+
                 switch result {
                 case .success(let movies):
-                    self?.movies = movies
-                    self?.cacheMovies(movies)
+                    let favoriteIDs = self.favoriteService.loadFavorites()
+                    let updatedMovies = movies.map { movie in
+                        var copy = movie
+                        copy.isFavorite = favoriteIDs.contains(movie.id)
+                        return copy
+                    }
+                    self.movies = updatedMovies
+                    self.cacheService.saveMovies(updatedMovies)
+                    
                 case .failure(let error):
-                    if let cached = self?.loadCachedMovies() {
-                        self?.movies = cached
+                    if let cached = self.cacheService.loadMovies() {
+                        self.movies = cached
                     } else {
-                        self?.error = error
+                        self.error = error
                     }
                 }
             }
@@ -66,12 +61,14 @@ class MovieListViewModel {
     }
 }
 
-
 //MARK: - Handle is favourite logic
 extension MovieListViewModel {
     func toggleFavorite(for movie: Movie) {
         guard let index = movies.firstIndex(where: { $0.id == movie.id }) else { return }
         movies[index].isFavorite.toggle()
+        
+        let favoriteIDs = movies.filter { $0.isFavorite }.map { $0.id }
+        favoriteService.saveFavorites(ids: favoriteIDs)
     }
 
     func isFavorite(movie: Movie) -> Bool {
