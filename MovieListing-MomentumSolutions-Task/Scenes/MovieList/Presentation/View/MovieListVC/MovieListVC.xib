@@ -88,18 +88,21 @@
                                     </constraints>
                                 </stackView>
                                 <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="eSj-Is-8zi">
-                                    <rect key="frame" x="160" y="262" width="73" height="25.666666666666686"/>
+                                    <rect key="frame" x="60" y="262" width="273" height="25.666666666666686"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="25.670000000000002" id="znA-VN-r64"/>
+                                    </constraints>
                                     <color key="pageIndicatorTintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <color key="currentPageIndicatorTintColor" systemColor="systemIndigoColor"/>
                                     <connections>
                                         <action selector="pageControlChanged:" destination="-1" eventType="valueChanged" id="I2t-g2-YAn"/>
                                     </connections>
                                 </pageControl>
-                                <stackView opaque="NO" contentMode="scaleToFill" spacing="144" translatesAutoresizingMaskIntoConstraints="NO" id="uU0-Mf-P7f" userLabel="Recommended for you">
+                                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uU0-Mf-P7f" userLabel="Recommended for you">
                                     <rect key="frame" x="8" y="302.66666666666669" width="377" height="20.333333333333314"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recommended for you" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kzo-6S-4Xn">
-                                            <rect key="frame" x="0.0" y="0.0" width="180.66666666666666" height="20.333333333333332"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="324.66666666666669" height="20.333333333333332"/>
                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -155,9 +158,12 @@
                                         </label>
                                     </subviews>
                                 </stackView>
-                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="eez-95-16K" userLabel="Banner Collection View">
+                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="eez-95-16K" userLabel="Banner Collection View">
                                     <rect key="frame" x="20" y="104" width="353" height="150"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="150" id="CqL-Iq-Im2"/>
+                                    </constraints>
                                     <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="XZX-4c-yuG">
                                         <size key="itemSize" width="128" height="128"/>
                                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -188,9 +194,9 @@
                                 <constraint firstItem="eSj-Is-8zi" firstAttribute="top" secondItem="eez-95-16K" secondAttribute="bottom" constant="8" id="gqN-cH-fkz"/>
                                 <constraint firstAttribute="bottom" secondItem="QT0-se-0qA" secondAttribute="bottom" id="i2d-R4-gxm"/>
                                 <constraint firstItem="eez-95-16K" firstAttribute="top" secondItem="9gQ-O9-ubT" secondAttribute="bottom" constant="24" id="jcU-7h-rUb"/>
-                                <constraint firstItem="eSj-Is-8zi" firstAttribute="leading" secondItem="UY3-fc-SNI" secondAttribute="leading" constant="160" id="mcR-Pf-dKb"/>
+                                <constraint firstItem="eSj-Is-8zi" firstAttribute="leading" secondItem="UY3-fc-SNI" secondAttribute="leading" constant="60" id="mcR-Pf-dKb"/>
                                 <constraint firstItem="6aD-EK-alB" firstAttribute="top" secondItem="uU0-Mf-P7f" secondAttribute="bottom" constant="20" id="nFz-Gw-9mr"/>
-                                <constraint firstAttribute="trailing" secondItem="eSj-Is-8zi" secondAttribute="trailing" constant="160" id="rKH-Fr-cU5"/>
+                                <constraint firstAttribute="trailing" secondItem="eSj-Is-8zi" secondAttribute="trailing" constant="60" id="rKH-Fr-cU5"/>
                                 <constraint firstAttribute="trailing" secondItem="NKw-Cw-krj" secondAttribute="trailing" constant="8" id="sI5-fZ-av9"/>
                                 <constraint firstItem="eez-95-16K" firstAttribute="leading" secondItem="UY3-fc-SNI" secondAttribute="leading" constant="20" id="zj8-9P-8wq"/>
                             </constraints>
