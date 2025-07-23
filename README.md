@@ -1,4 +1,4 @@
-<img width="1206" height="2622" alt="Movie List" src="https://github.com/user-attachments/assets/f3b1a3a7-8ba2-444a-88f9-228db9cb3d19" /># Movie-Listing-MomentumSolutions-Task
+Movie-Listing-MomentumSolutions-Task
 This project is a movie listing application developed as part of a task for Momentum Solutions. It demonstrates the ability to consume and display data from a remote API, applying clean architecture principles and modern iOS development practices.
 
 ---
@@ -12,8 +12,6 @@ This project is a movie listing application developed as part of a task for Mome
 - ✅ Caches movies to handle offline scenarios
 - ✅ Follows MVVM architecture with use cases
 - ✅ Uses Combine for reactive bindings
-<img width="1206" height="2622" alt="Movie Details" src="" />
-<img width="1206" height="2622" alt="Movie List" src="" />
 
 ---
 
