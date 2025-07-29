@@ -18,7 +18,7 @@ struct FetchPopularMoviesRequest: EndpointProtocol {
     
     var queryParameters: [String: String]? = [
         "language": "en-US",
-        "page": "1"
+        "page": "2"
     ]
      
     var body: (any Codable)? = nil
